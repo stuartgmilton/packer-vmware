@@ -1,0 +1,28 @@
+{
+  "builders": [
+    {
+      "type": "vmware-iso",
+      "iso_url": "cache/rhel-server-7.7-x86_64-dvd.iso",
+      "iso_checksum": "88b42e934c24af65e78e09f0993e4dded128d74ec0af30b89b3cdc02ec48f028",
+      "iso_checksum_type": "sha256",
+      "ssh_host": "192.168.190.134",
+      "ssh_username": "iris",
+      "ssh_password": "ir15_us3r",
+      "ssh_timeout": "10m",
+      "ssh_wait_timeout": "10000s",
+      "boot_command": [
+        "<esc>",
+        "<wait>linux inst.ks=hd:/dev/fd0:ks.cfg<enter><enter>"
+      ],
+      "boot_wait": "5s",
+      "memory": 2048,
+      "disk_adapter_type":  "scsi",
+      "disk_size": 20000,
+	  "disk_additional_size": [20000],
+      "floppy_files": [
+        "ks.cfg"
+      ],
+      "shutdown_command": "echo '/sbin/halt -h -p' > /tmp/shutdown.sh; echo 'ir15_us3r'|sudo -S sh '/tmp/shutdown.sh'"
+    }
+  ]
+}

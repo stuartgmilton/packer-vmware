@@ -1,0 +1,4 @@
+**/cache/*
+**/packer_cache/*
+**/output-vmware-iso/*
+.idea/
